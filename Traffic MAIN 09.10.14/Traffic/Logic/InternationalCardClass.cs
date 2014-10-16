@@ -66,6 +66,22 @@ namespace Traffic
                 db.SaveChanges();
             }
         }
+        public static List<InternationalCardClass> ReadAllCards()
+        {
+            List<InternationalCardClass> ResultList = new List<InternationalCardClass>();
+            using (var db=new trafficEntities())
+            {
+                var queryIC = from i in db.InternationalCard
+                              select i;
+                foreach (var i in queryIC)
+                {
+                    InternationalCardClass Card = new InternationalCardClass(i.registrationID,i.transportID,i.approvalCert,
+                        i.dateFromApproval,i.dateUntil,i.organizationID);
+                    ResultList.Add(Card);
+                }
+            }
+            return ResultList;
+        }
         public static InternationalCardClass SearchByTransportID(long transportID)
         {
             InternationalCardClass returnParam = new InternationalCardClass();
