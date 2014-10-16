@@ -26,13 +26,36 @@ namespace Traffic
                                     string ShortTitle, string RegNumber, string INN, 
                                     string KPP, string UNP)
         {
-            var organization = new Organization {addressID=AddressID,organizationID=OrganizationID,FullTitle=FullTitle,ShortTitle=ShortTitle,RegistrationNumber=RegNumber, INN=INN, KPP=KPP, UNP=UNP };
+            var organization = new Organization {addressID=AddressID,organizationID=OrganizationID,FullTitle=FullTitle,
+                ShortTitle=ShortTitle,RegistrationNumber=RegNumber, INN=INN, KPP=KPP, UNP=UNP };
             using (var db = new trafficEntities())
             {
                 db.Organization.Add(organization);
                 db.SaveChanges();
             }
         }
+        public static void EditOrganization(long OrganizationID, long AddressID, string FullTitle,
+                                    string ShortTitle, string RegNumber, string INN,
+                                    string KPP, string UNP)
+        {
+            using (var db = new trafficEntities())
+            {
+                var queryOrg = from o in db.Organization
+                               where o.organizationID == OrganizationID
+                               select o;
+                Organization updOrganization = queryOrg.First();
+                updOrganization.addressID = AddressID;
+                updOrganization.FullTitle = FullTitle;
+                updOrganization.ShortTitle = ShortTitle;
+                updOrganization.RegistrationNumber = RegNumber;
+                updOrganization.INN = INN;
+                updOrganization.KPP = KPP;
+                updOrganization.UNP = UNP;
+                db.SaveChanges();
+            }
+        }
+
+
 
         public static Organization SearchByID(long organizationID)
         {
@@ -49,6 +72,18 @@ namespace Traffic
                 }
             }
             return org;
+        }
+        public static void DeleteByID(long organizationID)
+        {
+            using (var db = new trafficEntities())
+            {
+                var queryOrg = from o in db.Organization
+                               where o.organizationID == organizationID
+                               select o;
+                Organization DelOrg = queryOrg.First();
+                db.Organization.Remove(DelOrg);
+                db.SaveChanges();
+            }
         }
         
     }

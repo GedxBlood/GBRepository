@@ -12,7 +12,7 @@ namespace Traffic
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using TrafficBusinessLogic;
+    
     public partial class trafficEntities : DbContext
     {
         public trafficEntities()

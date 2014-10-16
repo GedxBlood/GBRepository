@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TrafficBusinessLogic
+namespace Traffic
 {
     using System;
     using System.Collections.Generic;

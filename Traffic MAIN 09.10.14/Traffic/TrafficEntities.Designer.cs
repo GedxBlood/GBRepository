@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Работа\Project\Traffic\Traffic\TrafficEntities.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Работа\zGitHub\GBRepository\Traffic MAIN 09.10.14\Traffic\TrafficEntities.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

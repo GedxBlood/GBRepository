@@ -9,6 +9,7 @@ namespace Traffic
     {
         public long RegistrationID;
         public long TransportID;
+        public string ApprovalCert;
         public DateTime DateFrom;
         public DateTime DateUntil;
         public string Model;
@@ -18,7 +19,7 @@ namespace Traffic
         {
 
         }
-        public InternationalCardClass(long registrationID, long transportID, 
+        public InternationalCardClass(long registrationID, long transportID,string approvalCert, 
                                        DateTime dateFrom, DateTime dateUntil, long organizationID)
         {
             TransportID = transportID;
@@ -44,12 +45,27 @@ namespace Traffic
                     org=o;
                 }
             }
+            ApprovalCert = approvalCert;
             RegistrationID = registrationID;
             DateFrom = dateFrom;
             DateUntil = dateUntil;
             Model = tr.model;
             RegNumber = tr.registrationNumber;
             OrgName = org.ShortTitle;
+            using (var db = new trafficEntities())
+            {
+                InternationalCard IC = new InternationalCard() 
+                {
+                    registrationID=RegistrationID, 
+                    approvalCert=ApprovalCert,
+                    transportID=transportID,
+                    organizationID=organizationID, 
+                    dateFromApproval=dateFrom,
+                    dateUntil=DateUntil
+                };
+                db.InternationalCard.Add(IC);
+                db.SaveChanges();
+            }
         }
         public static InternationalCardClass SearchByTransportID(long transportID)
         {

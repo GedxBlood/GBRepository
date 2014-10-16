@@ -37,7 +37,7 @@ namespace Traffic
             float? engineVolume)
         {
             var transport = new Transport {transportID=transportID,model=model,registrationNumber=registrationNumber,VIN=VIN,
-                                            transportType=transportType,transportMakingYear=transportMakingYear,ecologyClass=ecologyClass,
+                                            transportType=transportType,transportCategory=transportCategory, transportMakingYear=transportMakingYear,ecologyClass=ecologyClass,
                                            maxWeight=maxWeight,weight=weight,engineType=engineType, engineVolume=engineVolume};
             using (var db = new trafficEntities())
             {
@@ -73,7 +73,7 @@ namespace Traffic
             return IDList;
         }
 
-        public static void ChangeTransport(
+        public static void EditTransport(
             long transportID,
             string model,
             string registrationNumber,
@@ -98,6 +98,7 @@ namespace Traffic
                 updTransport.registrationNumber = registrationNumber;
                 updTransport.VIN = VIN;
                 updTransport.transportType = transportType;
+                updTransport.transportCategory = transportCategory;
                 updTransport.transportMakingYear = transportMakingYear;
                 updTransport.ecologyClass = ecologyClass;
                 updTransport.maxWeight = maxWeight;

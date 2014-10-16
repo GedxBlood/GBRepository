@@ -17,21 +17,21 @@
         <asp:TableCell runat="server" ForeColor="#CC0000">
 
             <asp:RequiredFieldValidator ID="vldr_transportIDRequired" runat="server" ErrorMessage="Transport ID is required field"
-                Text="*" ControlToValidate="txt_1" Display="Static" Enabled="True"></asp:RequiredFieldValidator>
+                Text="*" ControlToValidate="txt_01" Display="Static" Enabled="True"></asp:RequiredFieldValidator>
         </asp:TableCell>
     </asp:TableRow>
-    <asp:TableRow runat="server">
+    <%--<asp:TableRow runat="server">
         <asp:TableCell runat="server">
                           
              
             </asp:TableCell>
         <asp:TableCell runat="server">
-            <asp:DropDownList ID="txt_1" runat="server" Width="200px" AutoPostBack="True" OnSelectedIndexChanged="EventHandler" ></asp:DropDownList>
+            <asp:DropDownList ID="txt_1" runat="server" Width="200px" AutoPostBack="True" OnSelectedIndexChanged="EventHandler" Visible="false" ></asp:DropDownList>
 
     </asp:TableCell>
         <asp:TableCell runat="server">
     </asp:TableCell>
-    </asp:TableRow>
+    </asp:TableRow>--%>
     <asp:TableRow runat="server">
 
         <asp:TableCell runat="server">

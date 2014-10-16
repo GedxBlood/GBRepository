@@ -78,8 +78,7 @@ namespace Traffic
             List<Transport> TrList = TransportLogic.ReadAllTransports();
             for (int i = 0; i < TrList.Count; i++)
             {
-                //if ((int)TransportDataGrid.SelectedDataKey.Value == TrList[i].transportID)
-                if (TransportDataGrid.SelectedRow.Cells[0].Text == TrList[i].transportID.ToString())
+                if (TransportDataGrid.SelectedRow.Cells[1].Text == TrList[i].transportID.ToString())
                 {
                     updateTransport = TrList[i];
                     break;

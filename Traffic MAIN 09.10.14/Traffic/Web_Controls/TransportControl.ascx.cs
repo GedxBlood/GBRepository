@@ -173,9 +173,11 @@ namespace Traffic
             {
                 IsEdit = false;
                 ViewState["EditMode"] = IsEdit;
-                txt_1.DataSource = TransportLogic.ListOfIDs();
-                txt_1.DataBind();
+                //txt_1.DataSource = TransportLogic.ListOfIDs();
+                //txt_1.DataBind();
             }
+            if (ViewState["EditID"] != null)
+                txt_01.Text = ViewState["EditID"].ToString();
             _txtFields = new List<TextBox>(12)
             {
                 txt_01,
@@ -254,7 +256,7 @@ namespace Traffic
             else
                 try
                 {
-                    TransportLogic.ChangeTransport(
+                    TransportLogic.EditTransport(
                         par_1,
                         par_2,
                         par_3,
@@ -295,28 +297,23 @@ namespace Traffic
             IsEdit = true;
             ViewState["EditMode"] = IsEdit;
             ViewState["EditID"] = identity;
-
+            txt_01.ReadOnly = IsEdit;
             btn_AddEdit.Text = "Edit";
-            txt_01.Visible = false;
-            txt_1.Visible = true;
-            //txt_Email.ReadOnly = IsEdit;
-            //txt_Password.ReadOnly = IsEdit;
-            //txt_RePassword.ReadOnly = IsEdit;
+        //necessary if style is changed:    //txt_01.Visible = false;
+                                            //txt_1.Visible = true;
         }
         public void SetAddMode()
         {
             IsEdit = false;
             ViewState["EditMode"] = IsEdit;
-            txt_1.Visible = false;
+            //txt_1.Visible = false;
             txt_01.Visible = true;
+            txt_01.ReadOnly = false;
             btn_AddEdit.Text = "ADD";
-            //txt_Email.ReadOnly = IsEdit;
-            //txt_Password.ReadOnly = IsEdit;
-            //txt_RePassword.ReadOnly = IsEdit;
-
             ClearControlFields();
         }
 
+        //NOT USED
         protected void EventHandler(object sender, EventArgs e)
         {
             Transport Transport = new Transport();
@@ -324,13 +321,14 @@ namespace Traffic
             for (int i = 0; i < TrList.Count; i++)
             {
 
-                if (long.Parse(txt_1.SelectedValue) == TrList[i].transportID)
+                //if (long.Parse(txt_1.SelectedValue) == TrList[i].transportID)
+                if (long.Parse(txt_01.Text) == TrList[i].transportID)
                 {
                     Transport = TrList[i];
                     break;
                 }
             }
-         if (Transport != null)
+            if (Transport != null)
             {
                 par_1 = Transport.transportID;
                 par_2 = Transport.model;
@@ -345,8 +343,7 @@ namespace Traffic
                 par_11 = Transport.engineType;
                 par_12 = Transport.engineVolume;
             }
-        }
-        
+        }      
     }
 
 }
