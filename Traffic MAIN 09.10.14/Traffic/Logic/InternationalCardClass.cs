@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TrafficBusinessLogic;
 namespace Traffic
 {
     public class InternationalCardClass
@@ -109,6 +108,40 @@ namespace Traffic
             returnParam.OrgName = org.ShortTitle;
             return returnParam;
         }
-
+        public static void DeleteByTransportID(long transportID)
+        {
+            using (var db = new trafficEntities())
+            {
+                var Query = from t in db.InternationalCard
+                            where t.transportID == transportID
+                            select t;
+                InternationalCard DelCard = Query.First();
+                db.InternationalCard.Remove(DelCard);
+                db.SaveChanges();
+            }
+        }
+        public static void EditByTransportID(long registrationID, long transportID, string approvalCert,
+                                       DateTime dateFrom, DateTime dateUntil, long organizationID)
+        {
+            using (var db = new trafficEntities())
+            {
+                var Query = from t in db.InternationalCard
+                            where t.transportID == transportID
+                            select t;
+                InternationalCard DelCard = Query.First();
+                db.InternationalCard.Remove(DelCard);
+                InternationalCard CardClass = new InternationalCard()
+                {
+                    registrationID=registrationID,
+                    transportID=transportID,
+                    approvalCert=approvalCert,
+                    dateFromApproval=dateFrom,
+                    dateUntil=dateUntil, 
+                    organizationID=organizationID
+                };
+                db.InternationalCard.Add(CardClass);
+                db.SaveChanges();
+            }
+        }
     }
 }

@@ -85,6 +85,16 @@ namespace Traffic
                 db.SaveChanges();
             }
         }
-        
+
+        public static List<long> ListOfIDs()
+        {
+            List<Organization> TList = OrganizationsLogic.ReadAllOrganizations();
+            List<long> IDList = new List<long>();
+            foreach (Organization t in TList)
+            {
+                IDList.Add(t.organizationID);
+            }
+            return IDList;
+        }
     }
 }

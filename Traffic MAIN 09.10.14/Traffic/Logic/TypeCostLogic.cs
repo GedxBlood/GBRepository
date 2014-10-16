@@ -48,5 +48,20 @@ namespace Traffic
             }
             return TC;
         }
+        public static void DeleteByID(long TypeCostID)
+        {
+            TypeCost TC = new TypeCost();
+            using (var db = new trafficEntities())
+            {
+                //finding TypeCost
+                var queryTypeCost = from tc in db.TypeCost
+                                    where tc.typeCostID == TypeCostID
+                                    select tc;
+                TC = queryTypeCost.First();
+                db.TypeCost.Remove(TC);
+                db.SaveChanges();
+            }
+        }
+
     }
 }

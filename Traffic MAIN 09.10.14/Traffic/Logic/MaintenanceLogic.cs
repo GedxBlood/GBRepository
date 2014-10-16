@@ -22,9 +22,9 @@ namespace Traffic
             }
             return (AllMaintenances);
         }
-        public static void AddMaintenance(long transportID,DateTime dateFrom,DateTime dateUntil,long typeCostID,decimal cost)
+        public static void AddMaintenance(long maintenanceID,long transportID,DateTime dateFrom,DateTime dateUntil,long typeCostID,decimal cost)
         {
-            var Maintenance = new Maintenance { transportID=transportID, dateFrom=dateFrom, dateUntil=dateUntil, typeCostID=typeCostID,cost=(decimal)cost};
+            var Maintenance = new Maintenance {maintenanceID=maintenanceID, transportID=transportID, dateFrom=dateFrom, dateUntil=dateUntil, typeCostID=typeCostID,cost=(decimal)cost};
             using (var db = new trafficEntities())
             {
                 db.Maintenance.Add(Maintenance);
@@ -48,5 +48,19 @@ namespace Traffic
             }
             return Maintenance;
         }
+        public static void DeleteByID(long MaintenanceID)
+        {
+            Maintenance Maintenance = new Maintenance();
+            using (var db = new trafficEntities())
+            {
+                //finding Maintenance
+                var queryMaintenance = from m in db.Maintenance
+                                       where m.maintenanceID == MaintenanceID
+                                       select m;
+                Maintenance = queryMaintenance.First();
+                db.Maintenance.Remove(Maintenance);
+            }
+        }
+
     }
 }

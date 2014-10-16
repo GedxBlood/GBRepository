@@ -37,9 +37,38 @@ namespace Traffic
             }
             return AllMaintenanceClasses;
         }
-        public static void AddMaintenanceClass(long transportID,DateTime dateFrom,DateTime dateUntil,long typeCostID,decimal cost)
+        public static void AddMaintenanceClass(long maintenanceID,long transportID,DateTime dateFrom,DateTime dateUntil,long typeCostID,decimal cost)
         {
-            MaintenanceLogic.AddMaintenance(transportID,dateFrom,dateUntil,typeCostID,cost);
+            MaintenanceLogic.AddMaintenance(maintenanceID,transportID,dateFrom,dateUntil,typeCostID,cost);
         }
+
+
+        public static void EditByID(long maintenanceID,long transportID, DateTime dateFrom, DateTime dateUntil, long typeCostID, decimal cost)
+        {
+            using (var db = new trafficEntities())
+            {
+                var Query = from t in db.Maintenance
+                            where t.maintenanceID == maintenanceID
+                            select t;
+                Maintenance DelMaintenance = Query.First();
+                db.Maintenance.Remove(DelMaintenance);
+                Maintenance Maintenance = new Maintenance()
+                {
+                    maintenanceID=maintenanceID,
+                    transportID=transportID,
+                    dateFrom=dateFrom,
+                    dateUntil=dateUntil,
+                    typeCostID=typeCostID,
+                    cost=cost
+                };
+                db.Maintenance.Add(Maintenance);
+                db.SaveChanges();
+            }
+        }
+        public static void DeleteByID(long maintenanceID)
+        {
+            MaintenanceLogic.DeleteByID(maintenanceID);
+        }
+
     }
 }
