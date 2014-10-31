@@ -306,6 +306,33 @@
           <Property Name="login" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="Waybills">
+          <Key>
+            <PropertyRef Name="waybillID" />
+          </Key>
+          <Property Name="waybillID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="waybillNumber" Type="int" />
+          <Property Name="creationDate" Type="date" />
+          <Property Name="carrierID" Type="bigint" />
+          <Property Name="carID" Type="bigint" />
+          <Property Name="trailerID" Type="int" />
+          <Property Name="driversTableNumber" Type="int" />
+          <Property Name="speedometerOnDeparture" Type="float" />
+          <Property Name="speedometerOnReturn" Type="float" />
+          <Property Name="departureDateShedule" Type="date" />
+          <Property Name="departureTimeShedule" Type="time" Precision="7" />
+          <Property Name="departureDateFact" Type="date" />
+          <Property Name="departureTimeFact" Type="time" Precision="7" />
+          <Property Name="returnDateShedule" Type="date" />
+          <Property Name="returnTimeShedule" Type="time" Precision="7" />
+          <Property Name="returnDateFact" Type="date" />
+          <Property Name="returnTimeFact" Type="time" Precision="7" />
+          <Property Name="zeroMileage" Type="float" />
+          <Property Name="engineTime" Type="float" />
+          <Property Name="soecialEquipmentTime" Type="float" />
+          <Property Name="FLMrestOnDeparture" Type="float" />
+          <Property Name="FLMrestOnReturn" Type="float" />
+        </EntityType>
         <Association Name="FK_ContractStreak_Contracts">
           <End Role="Contracts" Type="Self.Contracts" Multiplicity="1" />
           <End Role="ContractStreak" Type="Self.ContractStreak" Multiplicity="0..1" />
@@ -357,6 +384,7 @@
           <EntitySet Name="Trips" EntityType="Self.Trips" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeCost" EntityType="Self.TypeCost" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Waybills" EntityType="Self.Waybills" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_ContractStreak_Contracts" Association="Self.FK_ContractStreak_Contracts">
             <End Role="Contracts" EntitySet="Contracts" />
             <End Role="ContractStreak" EntitySet="ContractStreak" />
@@ -734,7 +762,35 @@
             <End Role="Organization" EntitySet="Organization" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
+          <EntitySet Name="Waybills" EntityType="trafficModel.Waybills" />
         </EntityContainer>
+        <EntityType Name="Waybills">
+          <Key>
+            <PropertyRef Name="waybillID" />
+          </Key>
+          <Property Name="waybillID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="waybillNumber" Type="Int32" />
+          <Property Name="creationDate" Type="DateTime" Precision="0" />
+          <Property Name="carrierID" Type="Int64" />
+          <Property Name="carID" Type="Int64" />
+          <Property Name="trailerID" Type="Int32" />
+          <Property Name="driversTableNumber" Type="Int32" />
+          <Property Name="speedometerOnDeparture" Type="Double" />
+          <Property Name="speedometerOnReturn" Type="Double" />
+          <Property Name="departureDateShedule" Type="DateTime" Precision="0" />
+          <Property Name="departureTimeShedule" Type="Time" Precision="7" />
+          <Property Name="departureDateFact" Type="DateTime" Precision="0" />
+          <Property Name="departureTimeFact" Type="Time" Precision="7" />
+          <Property Name="returnDateShedule" Type="DateTime" Precision="0" />
+          <Property Name="returnTimeShedule" Type="Time" Precision="7" />
+          <Property Name="returnDateFact" Type="DateTime" Precision="0" />
+          <Property Name="returnTimeFact" Type="Time" Precision="7" />
+          <Property Name="zeroMileage" Type="Double" />
+          <Property Name="engineTime" Type="Double" />
+          <Property Name="soecialEquipmentTime" Type="Double" />
+          <Property Name="FLMrestOnDeparture" Type="Double" />
+          <Property Name="FLMrestOnReturn" Type="Double" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1053,6 +1109,34 @@
                 <ScalarProperty Name="userID" ColumnName="userID" />
                 <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Waybills">
+            <EntityTypeMapping TypeName="trafficModel.Waybills">
+              <MappingFragment StoreEntitySet="Waybills">
+                <ScalarProperty Name="FLMrestOnReturn" ColumnName="FLMrestOnReturn" />
+                <ScalarProperty Name="FLMrestOnDeparture" ColumnName="FLMrestOnDeparture" />
+                <ScalarProperty Name="soecialEquipmentTime" ColumnName="soecialEquipmentTime" />
+                <ScalarProperty Name="engineTime" ColumnName="engineTime" />
+                <ScalarProperty Name="zeroMileage" ColumnName="zeroMileage" />
+                <ScalarProperty Name="returnTimeFact" ColumnName="returnTimeFact" />
+                <ScalarProperty Name="returnDateFact" ColumnName="returnDateFact" />
+                <ScalarProperty Name="returnTimeShedule" ColumnName="returnTimeShedule" />
+                <ScalarProperty Name="returnDateShedule" ColumnName="returnDateShedule" />
+                <ScalarProperty Name="departureTimeFact" ColumnName="departureTimeFact" />
+                <ScalarProperty Name="departureDateFact" ColumnName="departureDateFact" />
+                <ScalarProperty Name="departureTimeShedule" ColumnName="departureTimeShedule" />
+                <ScalarProperty Name="departureDateShedule" ColumnName="departureDateShedule" />
+                <ScalarProperty Name="speedometerOnReturn" ColumnName="speedometerOnReturn" />
+                <ScalarProperty Name="speedometerOnDeparture" ColumnName="speedometerOnDeparture" />
+                <ScalarProperty Name="driversTableNumber" ColumnName="driversTableNumber" />
+                <ScalarProperty Name="trailerID" ColumnName="trailerID" />
+                <ScalarProperty Name="carID" ColumnName="carID" />
+                <ScalarProperty Name="carrierID" ColumnName="carrierID" />
+                <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+                <ScalarProperty Name="waybillNumber" ColumnName="waybillNumber" />
+                <ScalarProperty Name="waybillID" ColumnName="waybillID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

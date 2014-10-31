@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using TrafficBusinessLogic;
 namespace Traffic
 {
     public partial class Transport1 : System.Web.UI.Page

@@ -33,6 +33,7 @@
         <EntityTypeShape EntityType="trafficModel.Users" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
         <AssociationConnector Association="trafficModel.FK_ContractStreak_Contracts" ManuallyRouted="false" />
         <AssociationConnector Association="trafficModel.FK_Employee_Organization" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="trafficModel.Waybills" Width="1.5" PointX="3" PointY="14.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

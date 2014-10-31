@@ -316,5 +316,33 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Waybills">
+      <EntityTypeMapping TypeName="trafficModel.Waybills">
+        <MappingFragment StoreEntitySet="Waybills">
+          <ScalarProperty Name="FLMrestOnReturn" ColumnName="FLMrestOnReturn" />
+          <ScalarProperty Name="FLMrestOnDeparture" ColumnName="FLMrestOnDeparture" />
+          <ScalarProperty Name="soecialEquipmentTime" ColumnName="soecialEquipmentTime" />
+          <ScalarProperty Name="engineTime" ColumnName="engineTime" />
+          <ScalarProperty Name="zeroMileage" ColumnName="zeroMileage" />
+          <ScalarProperty Name="returnTimeFact" ColumnName="returnTimeFact" />
+          <ScalarProperty Name="returnDateFact" ColumnName="returnDateFact" />
+          <ScalarProperty Name="returnTimeShedule" ColumnName="returnTimeShedule" />
+          <ScalarProperty Name="returnDateShedule" ColumnName="returnDateShedule" />
+          <ScalarProperty Name="departureTimeFact" ColumnName="departureTimeFact" />
+          <ScalarProperty Name="departureDateFact" ColumnName="departureDateFact" />
+          <ScalarProperty Name="departureTimeShedule" ColumnName="departureTimeShedule" />
+          <ScalarProperty Name="departureDateShedule" ColumnName="departureDateShedule" />
+          <ScalarProperty Name="speedometerOnReturn" ColumnName="speedometerOnReturn" />
+          <ScalarProperty Name="speedometerOnDeparture" ColumnName="speedometerOnDeparture" />
+          <ScalarProperty Name="driversTableNumber" ColumnName="driversTableNumber" />
+          <ScalarProperty Name="trailerID" ColumnName="trailerID" />
+          <ScalarProperty Name="carID" ColumnName="carID" />
+          <ScalarProperty Name="carrierID" ColumnName="carrierID" />
+          <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+          <ScalarProperty Name="waybillNumber" ColumnName="waybillNumber" />
+          <ScalarProperty Name="waybillID" ColumnName="waybillID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -51,6 +51,7 @@
                         Font-Names="Segoe UI" OnClick="btn_Delete_Click" />
                     <br />
                 </div>
+                <asp:Button ID="Button1" runat="server" OnClientClick="javascript:window.print();" Text="Button" Width="119px" />
                 <br />
             </asp:View>
 

@@ -444,6 +444,5 @@ D:\Работа\zGitHub\GBRepository\Traffic MAIN 09.10.14\Traffic\bin\ru\Micros
 D:\Работа\zGitHub\GBRepository\Traffic MAIN 09.10.14\Traffic\bin\ru\Microsoft.Owin.Security.Google.resources.dll
 D:\Работа\zGitHub\GBRepository\Traffic MAIN 09.10.14\Traffic\bin\ru\Microsoft.Owin.Security.Twitter.resources.dll
 D:\Работа\zGitHub\GBRepository\Traffic MAIN 09.10.14\Traffic\bin\ru\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-D:\Работа\zGitHub\GBRepository\Traffic MAIN 09.10.14\Traffic\obj\Debug\Traffic.csprojResolveAssemblyReference.cache
 D:\Работа\zGitHub\GBRepository\Traffic MAIN 09.10.14\Traffic\obj\Debug\Traffic.dll
 D:\Работа\zGitHub\GBRepository\Traffic MAIN 09.10.14\Traffic\obj\Debug\Traffic.pdb

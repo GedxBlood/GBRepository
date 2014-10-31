@@ -301,6 +301,33 @@
     <Property Name="login" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="Waybills">
+    <Key>
+      <PropertyRef Name="waybillID" />
+    </Key>
+    <Property Name="waybillID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="waybillNumber" Type="int" />
+    <Property Name="creationDate" Type="date" />
+    <Property Name="carrierID" Type="bigint" />
+    <Property Name="carID" Type="bigint" />
+    <Property Name="trailerID" Type="int" />
+    <Property Name="driversTableNumber" Type="int" />
+    <Property Name="speedometerOnDeparture" Type="float" />
+    <Property Name="speedometerOnReturn" Type="float" />
+    <Property Name="departureDateShedule" Type="date" />
+    <Property Name="departureTimeShedule" Type="time" Precision="7" />
+    <Property Name="departureDateFact" Type="date" />
+    <Property Name="departureTimeFact" Type="time" Precision="7" />
+    <Property Name="returnDateShedule" Type="date" />
+    <Property Name="returnTimeShedule" Type="time" Precision="7" />
+    <Property Name="returnDateFact" Type="date" />
+    <Property Name="returnTimeFact" Type="time" Precision="7" />
+    <Property Name="zeroMileage" Type="float" />
+    <Property Name="engineTime" Type="float" />
+    <Property Name="soecialEquipmentTime" Type="float" />
+    <Property Name="FLMrestOnDeparture" Type="float" />
+    <Property Name="FLMrestOnReturn" Type="float" />
+  </EntityType>
   <Association Name="FK_ContractStreak_Contracts">
     <End Role="Contracts" Type="Self.Contracts" Multiplicity="1" />
     <End Role="ContractStreak" Type="Self.ContractStreak" Multiplicity="0..1" />
@@ -352,6 +379,7 @@
     <EntitySet Name="Trips" EntityType="Self.Trips" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TypeCost" EntityType="Self.TypeCost" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Waybills" EntityType="Self.Waybills" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_ContractStreak_Contracts" Association="Self.FK_ContractStreak_Contracts">
       <End Role="Contracts" EntitySet="Contracts" />
       <End Role="ContractStreak" EntitySet="ContractStreak" />

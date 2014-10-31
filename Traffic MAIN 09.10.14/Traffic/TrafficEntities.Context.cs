@@ -51,5 +51,6 @@ namespace Traffic
         public virtual DbSet<Trips> Trips { get; set; }
         public virtual DbSet<TypeCost> TypeCost { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Waybills> Waybills { get; set; }
     }
 }

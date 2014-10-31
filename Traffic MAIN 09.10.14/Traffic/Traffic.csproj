@@ -348,6 +348,7 @@
     <Compile Include="Logic\TransportLogic.cs" />
     <Compile Include="Logic\TransportStateReportLogic.cs" />
     <Compile Include="Logic\TypeCostLogic.cs" />
+    <Compile Include="Logic\WaybillsLogic.cs" />
     <Compile Include="Maintenance.cs">
       <DependentUpon>TrafficEntities.tt</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -396,6 +397,9 @@
       <DependentUpon>TrafficEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
+      <DependentUpon>TrafficEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Waybills.cs">
       <DependentUpon>TrafficEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Web_Forms\About.aspx.cs">
