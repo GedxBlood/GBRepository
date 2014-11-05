@@ -188,6 +188,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="Web_Forms\WaybillsPrintPage.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Web_Forms\Employee.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -556,6 +557,13 @@
     </Compile>
     <Compile Include="Web_Controls\TransportControl.ascx.designer.cs">
       <DependentUpon>TransportControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web_Forms\WaybillsPrintPage.aspx.cs">
+      <DependentUpon>WaybillsPrintPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web_Forms\WaybillsPrintPage.aspx.designer.cs">
+      <DependentUpon>WaybillsPrintPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
