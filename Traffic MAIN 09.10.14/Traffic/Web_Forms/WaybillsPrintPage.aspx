@@ -6,14 +6,39 @@
 <head runat="server">
     <title></title>
     <style>
-        table{border-collapse:collapse}
+        table{border-collapse:collapse;
+            margin-right: 0px;
+        }
         td,tr{border:solid 1px #000;}
         .auto-style1 {
-            width: 50px;
+            border-style:hidden;
+            width: 80px;
+            }
+        .auto-style2 {
+            width: 83px;
+        }
+        .auto-style3 {
+            width: 80px;
+        }
+        .auto-style4 {
+            width: 99px;
+        }
+        .auto-style5 {
+            width: 63px;
         }
         </style>
 </head>
 <body>
+    <script type="text/javascript" ><!--
+    function hideContainer() {
+        document.getElementById("abc").style.display = "none";
+    }
+    function showConatainer() {
+        document.getElementById("abc").style.display = "";
+    }
+</script>
+
+
     <form id="form1" runat="server">
         <div style="display: table; margin: 0px auto;">
             	<span style="text-align:center; font-weight:bold;">Путевой лист № <asp:textbox cssclass="auto-style1" runat="server" name="waybillNumber" style="width:70px;" /></span>
@@ -70,6 +95,7 @@
                         <td>&nbsp;
                             
                         </td>
+                        <td></td>
                     </tr>
                 </table>
             </div>
@@ -80,88 +106,94 @@
                     </tr>
                     <tr class="header">
                     	<td rowspan="2">Операция</td>
-                        <td rowspan="2" class="auto-style1">Показания спидометра</td>
+                        <td rowspan="2">Показания спидометра</td>
                         <td colspan="2">Дата (год-месяц-число), время (ч, мин)</td>
-                        <td rowspan="2">Нулевой пробег, км</td>
+                        <td rowspan="2" class="auto-style4">Нулевой пробег, км</td>
                         <td colspan="2">Время работы, ч</td>
                     </tr>
                     <tr class="header">
-                    	<td>по графику</td>
+                    	<td class="auto-style3">по графику</td>
                         <td>фактически</td>
-                        <td>двигателя</td>
+                        <td class="auto-style2">двигателя</td>
                         <td>спецобору-<br>дования</td>
                     </tr>
                     <tr>
                     	<td class="header">Выезд на линию</td>
-                        <td class="auto-style1"><asp:textbox cssclass="auto-style1" runat="server" type="number" name="speedometerON" /></td>
-                        <td><asp:textbox cssclass="auto-style1" runat="server" type="date" placeholder="ГГГГ-ММ-ДД" name="dateGrafficON" /><br>
+                        <td><asp:textbox runat="server" cssclass="auto-style1" type="number" name="speedometerON" Height="18px" /></td>
+                        <td class="auto-style3"><asp:textbox cssclass="auto-style1" runat="server" type="date" placeholder="ГГГГ-ММ-ДД" name="dateGrafficON" /><br>
                         	<asp:textbox cssclass="auto-style1" runat="server" type="time" placeholder="ЧЧ:ММ" name="timeGrafficON" /></td>
                         <td><asp:textbox cssclass="auto-style1" runat="server" type="date" placeholder="ГГГГ-ММ-ДД" name="dateFactON" /><br>
                         	<asp:textbox cssclass="auto-style1" runat="server" type="time" placeholder="ЧЧ:ММ" name="timeFactON" /></td>
+                        <td >
+                        </td>
+                        <td class="auto-style2">
+                        </td>
+                        <td>
+                        </td>
                     </tr>
                     <tr>
                     	<td class="header">Возвращение с линии</td>
-                        <td class="auto-style1"><asp:textbox cssclass="auto-style1" runat="server" type="number" name="speedometerOFF" /></td>
-                        <td><asp:textbox cssclass="auto-style1" runat="server" type="date" placeholder="ГГГГ-ММ-ДД" name="dateGrafficOFF" /><br>
+                        <td ><asp:textbox cssclass="auto-style1" runat="server" type="number" name="speedometerOFF" /></td>
+                        <td class="auto-style3"><asp:textbox cssclass="auto-style1" runat="server" type="date" placeholder="ГГГГ-ММ-ДД" name="dateGrafficOFF" /><br>
                         	<asp:textbox cssclass="auto-style1" runat="server" type="time" placeholder="ЧЧ:ММ" name="timeGrafficOFF" /></td>
                         <td><asp:textbox cssclass="auto-style1" runat="server" type="date" placeholder="ГГГГ-ММ-ДД" name="dateFactOFF" /><br>
                         	<asp:textbox cssclass="auto-style1" runat="server" type="time" placeholder="ЧЧ:ММ" name="timeFactOFF" /></td>
-                        <td><asp:textbox cssclass="auto-style1" runat="server" type="number" name="zeroMileageOFF"/></td>
-						<td><asp:textbox cssclass="auto-style1" runat="server" type="number" name="workTimeEngineOFF"/></td>
-                        <td><asp:textbox cssclass="auto-style1" runat="server" type="number" name="workTimeEquipmentOFF"/></td>
+                        <td class="auto-style4"><asp:textbox cssclass="auto-style1" runat="server" type="number" name="zeroMileageOFF" Width="47px"/></td>
+						<td class="auto-style2"><asp:textbox cssclass="auto-style1" runat="server" type="number" name="workTimeEngineOFF" Width="50px"/></td>
+                        <td><asp:textbox cssclass="auto-style1" runat="server" type="number" name="workTimeEquipmentOFF" Width="50px"/></td>
                     </tr>
                 </table>
-                <table class="show" width="100%" style="margin-top:20px;">
+                <table class="show" style="margin-top:20px; width: 100%;">
                 	<tr class="header">
                     	<td colspan="5">Движение топливно-смазочных материалов (ТСМ)</td>
                     </tr>
                     <tr class="header">
-                    	<td colspan="2" width="60%">Заправка ТСМ</td>
+                    	<td colspan="2">Заправка ТСМ</td>
                         <td colspan="3">Остаток ТСМ, л</td>
                     </tr>
                     <tr class="header">
                     	<td>дата</td>
-                        <td>марка ТСМ</td>
-                        <td>количество, л</td>
-                        <td>при выезде</td>
+                        <td class="auto-style3">марка ТСМ</td>
+                        <td class="auto-style3">количество, л</td>
+                        <td class="auto-style3">при выезде</td>
                         <td>при возвращении</td>
                     </tr>
                     <tr>
                     	<td><asp:textbox cssclass="auto-style1" runat="server" type="date" name="fuelDate1" placeholder="ГГГГ-ММ-ДД"/></td>
-                        <td><asp:textbox cssclass="auto-style1" runat="server" type="text" name="fuelMark1"/></td>
-                        <td><asp:textbox cssclass="auto-style1" runat="server" type="number" name="fuelKol1"/></td>
-                        <td rowspan="2"><asp:textbox cssclass="auto-style1" runat="server" type="number" name="fuelKolLeaving"/></td>
+                        <td class="auto-style3"><asp:textbox cssclass="auto-style1" runat="server" type="text" name="fuelMark1"/></td>
+                        <td class="auto-style3"><asp:textbox cssclass="auto-style1" runat="server" type="number" name="fuelKol1"/></td>
+                        <td rowspan="2" class="auto-style3"><asp:textbox cssclass="auto-style1" runat="server" type="number" name="fuelKolLeaving"/></td>
                         <td rowspan="2"><asp:textbox cssclass="auto-style1" runat="server" type="number" name="fuelKolArriving"/></td>
                     </tr>
                     <tr>
                     	<td><asp:textbox cssclass="auto-style1" runat="server" type="date" name="fuelDate2" placeholder="ГГГГ-ММ-ДД"/></td>
-                        <td><asp:textbox cssclass="auto-style1" runat="server" type="text" name="fuelMark2"/></td>
-                        <td><asp:textbox cssclass="auto-style1" runat="server" type="number" name="fuelKol2"/></td>
+                        <td class="auto-style3"><asp:textbox cssclass="auto-style1" runat="server" type="text" name="fuelMark2"/></td>
+                        <td class="auto-style3"><asp:textbox cssclass="auto-style1" runat="server" type="number" name="fuelKol2"/></td>
                     </tr>
                     <tr>
                     	<td><asp:textbox cssclass="auto-style1" runat="server" type="date" name="fuelDate3" placeholder="ГГГГ-ММ-ДД"/></td>
-                        <td><asp:textbox cssclass="auto-style1" runat="server" type="text" name="fuelMark3"/></td>
-                        <td><asp:textbox cssclass="auto-style1" runat="server" type="number" name="fuelKol3"/></td>
+                        <td class="auto-style3"><asp:textbox cssclass="auto-style1" runat="server" type="text" name="fuelMark3"/></td>
+                        <td class="auto-style3"><asp:textbox cssclass="auto-style1" runat="server" type="number" name="fuelKol3"/></td>
                         <td class="header" colspan="2">Подписи (штамп)</td>
                     </tr>
                     <tr>
                     	<td><asp:textbox cssclass="auto-style1" runat="server" type="date" name="fuelDate4" placeholder="ГГГГ-ММ-ДД"/></td>
-                        <td><asp:textbox cssclass="auto-style1" runat="server" type="text" name="fuelMark4"/></td>
-                        <td><asp:textbox cssclass="auto-style1" runat="server" type="number" name="fuelKol4"/></td>
-                        <td class="header">механик</td>
+                        <td class="auto-style3"><asp:textbox cssclass="auto-style1" runat="server" type="text" name="fuelMark4"/></td>
+                        <td class="auto-style3"><asp:textbox cssclass="auto-style1" runat="server" type="number" name="fuelKol4"/></td>
+                        <td class="auto-style3">механик</td>
                         <td class="header">механик</td>
                     </tr>
                     <tr>
                     	<td><asp:textbox cssclass="auto-style1" runat="server" type="date" name="fuelDate5" placeholder="ГГГГ-ММ-ДД"/></td>
-                        <td><asp:textbox cssclass="auto-style1" runat="server" type="text" name="fuelMark5"/></td>
-                        <td><asp:textbox cssclass="auto-style1" runat="server" type="number" name="fuelKol5"/></td>
-                        <td rowspan="2"></td>
+                        <td class="auto-style3"><asp:textbox cssclass="auto-style1" runat="server" type="text" name="fuelMark5"/></td>
+                        <td class="auto-style3"><asp:textbox cssclass="auto-style1" runat="server" type="number" name="fuelKol5"/></td>
+                        <td rowspan="2" class="auto-style3"></td>
                         <td rowspan="2"></td>
                     </tr>
                     <tr>
                     	<td><asp:textbox cssclass="auto-style1" runat="server" type="date" name="fuelDate6" placeholder="ГГГГ-ММ-ДД"/></td>
-                        <td><asp:textbox cssclass="auto-style1" runat="server" type="text" name="fuelMark6"/></td>
-                        <td><asp:textbox cssclass="auto-style1" runat="server" type="number" name="fuelKol6"/></td>
+                        <td class="auto-style3"><asp:textbox cssclass="auto-style1" runat="server" type="text" name="fuelMark6"/></td>
+                        <td class="auto-style3"><asp:textbox cssclass="auto-style1" runat="server" type="number" name="fuelKol6"/></td>
                     </tr>
                 </table>
                 <span style="display:block; text-align:center; margin-top:5px;">Утверждаю,
@@ -179,21 +211,21 @@
                         </td>
                     </tr>
                     <tr class="header">
-                    	<td rowspan="2" width="15%">Заказчик</td>
+                    	<td rowspan="2" class="auto-style5">Заказчик</td>
                         <td colspan="2">Дата, время</td>
                         <td rowspan="2">Пункт отправления(адрес места погрузки)</td>
                         <td rowspan="2">Пункт назначения(адрес места разгрузки)</td>
                         <td rowspan="2">Расстояние, км</td>
-                        <td rowspan="2">Наименование груза</td>
+                        <td rowspan="2" class="auto-style3">Наименование груза</td>
                         <td rowspan="2">Вес груза, т</td>
-                        <td rowspan="2">Количество поездок с грузом, ч</td>
+                        <td rowspan="2" class="auto-style3">Количество поездок с грузом, ч</td>
                      </tr>
                      <tr class="header">
                         <td>прибытия</td>
                         <td>убытия</td>
                     </tr>
                     <tr>
-                    	 <td>
+                    	 <td class="auto-style5">
                             <select name="client1">
                                 <option value="not">Не выбрано</option>
                                 <option value="15">Белорусско-Российский университет</option><option value="16">Тестовая организация 2</option>                            </select>
@@ -215,19 +247,26 @@
                         <td>
                         	<asp:textbox cssclass="auto-style1" runat="server" type="number" name="routeMileage1" />
                         </td>
-                        <td>
+                        <td class="auto-style3">
                         	<asp:textbox cssclass="auto-style1" runat="server" type="text" name="load1" />
                         </td>
                         <td>
                         	<asp:textbox cssclass="auto-style1" runat="server" type="number" name="weight1" />
                         </td>
-                        <td>
+                        <td class="auto-style3">
                         	<asp:textbox cssclass="auto-style1" runat="server" type="number" name="loadTime1" />
                         </td>
                     </tr>
                   </table>
              </div>
-        <asp:Button ID="Button1" runat="server" OnClientClick="javascript:window.print();" Text="Button" Width="119px" />
+        <div id="buttons">
+        <asp:Button ID="Print" runat="server" OnClientClick="javascript:window.print();" Text="Print" Width="120px" />
+        </div>
+        <a href="javascript:hideContainer()">Hide</a>
+<a href="javascript:showConatainer()">Show</a>
+<div id="abc">
+ololo
+</div>
 </form>
 </body>
 </html>
